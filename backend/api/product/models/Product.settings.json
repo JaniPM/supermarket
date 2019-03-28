@@ -1,0 +1,45 @@
+{
+  "connection": "default",
+  "collectionName": "product",
+  "info": {
+    "name": "product",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "sku": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "default": "",
+      "type": "decimal",
+      "required": true
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "category": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "dairy",
+        "meat",
+        "seafood",
+        "candy"
+      ]
+    }
+  }
+}
