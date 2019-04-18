@@ -6,13 +6,24 @@
  * @flow
  */
 
+import React from 'react';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { ThemeProvider } from 'styled-components';
+import mainTheme from './theme';
 import HomeView from './views/home';
 import CategoriesView from './views/categories';
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeView,
-  Categories: CategoriesView,
+  Home: { screen: HomeView },
+  Categories: { screen: CategoriesView },
 });
 
-export default createAppContainer(TabNavigator);
+const AppContainer = createAppContainer(TabNavigator);
+
+const App = () => (
+  <ThemeProvider theme={mainTheme}>
+    <AppContainer />
+  </ThemeProvider>
+);
+
+export default App;

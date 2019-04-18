@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
+import { Text } from 'react-native';
+import ViewContainer from '../../components/view-container';
 
-const CategoriesView = () => {
-  return (
-    <View>
-      <Text>Categories are here!</Text>
-    </View>
-  )
-}
+const CategoriesView = () => (
+  <ViewContainer>
+    <Text>Categories are here!</Text>
+  </ViewContainer>
+);
 
 export default CategoriesView;
