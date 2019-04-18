@@ -7,6 +7,8 @@
  */
 
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
+import ApolloClient from 'apollo-boost';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import { ThemeProvider } from 'styled-components';
 import mainTheme from './theme';
@@ -20,10 +22,14 @@ const TabNavigator = createBottomTabNavigator({
 
 const AppContainer = createAppContainer(TabNavigator);
 
+const client = new ApolloClient({ uri: 'http://localhost:1337/graphql' });
+
 const App = () => (
-  <ThemeProvider theme={mainTheme}>
-    <AppContainer />
-  </ThemeProvider>
+  <ApolloProvider client={client}>
+    <ThemeProvider theme={mainTheme}>
+      <AppContainer />
+    </ThemeProvider>
+  </ApolloProvider>
 );
 
 export default App;
